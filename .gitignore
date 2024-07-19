@@ -1,0 +1,4 @@
+
+*.pyc
+Python/employee_directory/django_superuser.txt
+Python/toDo/django_superuser
