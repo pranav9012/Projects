@@ -7,7 +7,7 @@ This is a simple ToDo application built with Django for the backend and HTML, CS
 ### Dashboard
 - The main dashboard displays your tasks for the day on the left and completed tasks on the right.
 
-![Dashboard](/toDo/assests/home.png)
+![Dashboard](assests/home.png)
 
 ### Task Management
 - **Add a Task**: Enter a new task in the input field and click the "Add" button to include it in your list.
