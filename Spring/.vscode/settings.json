@@ -1,0 +1,7 @@
+{
+    "jdk.advanced.disable.nbjavac": false,
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.project.sourcePaths": [
+        "spring_mvc/src/main"
+    ]
+}
