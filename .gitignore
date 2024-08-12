@@ -7,3 +7,4 @@ Python/toDo/django_superuser
 
 # Local Netlify folder
 .netlify
+/Frontend/Pages/node_modules
