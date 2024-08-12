@@ -1,12 +1,17 @@
 package com.rest_demo.demo;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+
 
 
 
@@ -17,7 +22,7 @@ public class dataResource {
     @Autowired
     EmployeeRepo repo;
 
-    @GetMapping(path="allData", produces={"application/xml, application/json"})    
+    @GetMapping(path="/", produces={"application/xml", "application/json"})    
     public List<Data> getAllData(){ 
 
 
@@ -38,6 +43,17 @@ public class dataResource {
         return DataSet;
     }
 
+    @GetMapping("/employeeName/{name}")
+    public Data getDataByName(@PathVariable String name) {
+
+        return repo.findByName(name);
+    }
+
+    @GetMapping("/employee/{id}")
+    public Optional<Data> getDataById(@PathVariable Integer id) {
+        return repo.findById(id);
+    }
+    
     @PostMapping("addData")
     public Data addData(@RequestBody Data entity) {
         if(entity.getName() == null || entity.getName().trim().isEmpty()){
@@ -46,8 +62,19 @@ public class dataResource {
 
         repo.save(entity);
         return entity;
-        
+    }
 
+    @DeleteMapping("delete/{id}")
+    public List<Data> deleteById(@PathVariable Integer id) {
+        repo.deleteById(id);
+        return (List<Data>) repo.findAll();
+    }
+    
+    
+    @DeleteMapping("deleteName/{name}")
+    public List<Data> deleteByName(@PathVariable String name) {
+        repo.deleteByName(name);
+        return (List<Data>) repo.findAll();
     }
     
 }

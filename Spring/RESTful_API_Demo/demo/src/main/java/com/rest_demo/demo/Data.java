@@ -10,11 +10,12 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name ="employee")
 public class Data {
-    private String name;
+
     // Make id the Primary Key
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+    private String name;
     private String designation;
     
     public Data()   {}
