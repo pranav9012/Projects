@@ -4,3 +4,6 @@ Python/employee_directory/django_superuser.txt
 Python/toDo/django_superuser
 /JaveEE
 .vscode/settings.json
+
+# Local Netlify folder
+.netlify
