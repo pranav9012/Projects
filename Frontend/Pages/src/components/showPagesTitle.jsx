@@ -8,7 +8,7 @@ function EditableTitle(title){
 
     function handleTitleEditMode(){
         console.log(titleEditMode);
-        setTitleEditMode(!titleEditMode);
+        // setTitleEditMode(!titleEditMode);
         setTimeout( () =>{
             if(titleRef.current){
                 titleRef.current.focus();
@@ -17,11 +17,13 @@ function EditableTitle(title){
     };
 
     return(
-        <h2 className={`text-2xl font-normal mb-4 ${titleEditMode ? 'focus:outline-none border-b-2' : 'hover:cursor-pointer underline underline-offset-4'}`}
-                contentEditable={titleEditMode}
-                onDoubleClick={handleTitleEditMode}
-                onBlur={() => setTitleEditMode(false)}
-                suppressContentEditableWarning={true}>
+        // <h2 className={`text-2xl font-normal mb-4 ${titleEditMode ? 'focus:outline-none border-b-2' : 'hover:cursor-pointer underline underline-offset-4'}`}
+        <h2 className="text-2xl font-normal mb-4 underline underline-offset-4 hover:cursor-pointer
+                        focus:font-light focus:outline-none focus:border-b-2 focus:no-underline"
+            contentEditable={true}
+            onClick={handleTitleEditMode}
+            onBlur={() => setTitleEditMode(false)}
+            suppressContentEditableWarning={true}>
         {title.title}
         </h2>
     );

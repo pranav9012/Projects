@@ -1,18 +1,22 @@
 import React from 'react';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Page from './components/Page';
-
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import BadGateWat from './components/badgateway';
+import Home from './components/home';
+import Iconic404 from './components/Iconic404';
+import ServerError from './components/ServerError';
 
 function App() {
 
   return (
-    <div className='flex flex-col min-h-screen relative'>
-    <Header />
-    <Page className='flex-grow'/>
-    <Footer className='relative'/>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/badgateway' element={<BadGateWat />} />
+        <Route path='/servererror' element={<ServerError />} />
+        <Route path='*' element={<Iconic404 />} /> 
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;

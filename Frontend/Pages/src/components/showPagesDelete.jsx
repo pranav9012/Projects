@@ -8,7 +8,7 @@ function DeletePage(note){
         // Delete the note here
         console.log('Deleting note:');
         console.log(note);
-        const newNotesArray = note.notes.filter((n, index) => index !==id);
+        const newNotesArray = note.notes.filter((n, index) => index !== id);
         note.setNotes(newNotesArray);
     };
 
