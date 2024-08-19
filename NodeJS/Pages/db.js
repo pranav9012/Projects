@@ -1,11 +1,12 @@
 import pg from 'pg';
+import secrets from './secrets.js';
 function init_db(){
     const db = new pg.Client({
-        user: 'postgres',
-        host: 'localhost',
-        database: 'Pages',
-        password: 'admin',
-        port: 5432,
+        user: secrets.user,
+        host: secrets.host,
+        database: secrets.database,
+        password: secrets.password,
+        port: secrets.port,
     });
 
     db.connect();
