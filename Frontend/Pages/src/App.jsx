@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/badgateway' element={<BadGateWat />} />
-        <Route path='/servererror' element={<ServerError />} />
+        <Route path='/server-error' element={<ServerError />} />
         <Route path='*' element={<Iconic404 />} /> 
       </Routes>
     </Router>

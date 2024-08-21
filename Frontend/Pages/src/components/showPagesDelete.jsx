@@ -1,15 +1,35 @@
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from "react";
+import { useNavigate } from 'react-router-dom';
+import fetchNotes, { deleteNote } from '../APIs/notesAPI';
 
 function DeletePage(note){
 
-    function handleDeleteClick(id){
+    const navigate = useNavigate();
+
+    async function handleDeleteClick(id){
         // Delete the note here
         console.log('Deleting note:');
         console.log(note);
-        const newNotesArray = note.notes.filter((n, index) => index !== id);
+        const newNotesArray = note.notes.filter((n, index) => (index + 1) !== id);
         note.setNotes(newNotesArray);
+        if(note.userlogged){
+            const status = await deleteNote(note.id, note.userId);
+            if(status === 200){
+                console.log('Note deleted  successfully');
+                await fetchNotes(note.setNotes, note.userId)
+            }
+            else if(status == 502){
+                navigate('/Server-error');
+            }
+            else if(status == 500){
+                navigate('/badgateway');
+            }
+            else if(status == 400){
+                navigate('/404');
+            }
+        }
     };
 
     return(

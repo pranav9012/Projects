@@ -37,6 +37,7 @@ function alreadyRegisteredUser(email){
 async function addUser(email, password) {
     return new Promise(async (resolve, reject) => {
         let db_handler = init_db();
+        let userId = -1;
         
         try {
             const hash = await hashPasswordfunc(password); // Await the password hashing
@@ -54,10 +55,18 @@ async function addUser(email, password) {
                 }
 
                 // If the insert was successful, we now query the user ID
-                const userId = res.rows[0].user_id; // Assuming the `id` column is returned from the insert
+                userId = res.rows[0].user_id; // Assuming the `id` column is returned from the insert
+                resolve([1, userId]);
+                db_handler.query("INSERT INTO pages (user_id, title, content) VALUES ($1, $2, $3)", [userId, 'First Page', 'This is the beginning of your Pages'], (err, res) => {
+                if (err) {
+                    console.error(err);
+                    db_handler.end();
+                    return reject([-1, null]);
+                }
                 resolve([1, userId]);
                 db_handler.end();
             });
+        });
 
         } catch (error) {
             console.error("Error while hashing password", error);
@@ -143,7 +152,10 @@ async function registerUser(email, password, res){
                 // console.log("below add user");
                 // console.log(addStatus + 'addStatus');
                 if(addStatus === -1)    return res.status(502).json({message: 'Bad Gateway'});
-                else if(addStatus === 1)    return res.status(201).json({ message: 'User created successfully', user_id: user_id });
+                else if(addStatus === 1){
+                    // getNotes(user_id);
+                    return res.status(201).json({ message: 'User created successfully', user_id: user_id });
+                }
             }
         }
         else{

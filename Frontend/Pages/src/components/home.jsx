@@ -63,6 +63,8 @@ function Home(){
                                 setUserEmail={setUserEmail}
                                 invalidCredentials={invalidCredentials}
                                 setInvalidCredentials={setInvalidCredentials}
+                                setNotes={setNotes}
+                                setUserId={setUserId}
                                 /> : null}
                 {isRegisterOpen ? <RegisterForm 
                                     setIsLoginOpen={setIsLoginOpen} 
@@ -71,6 +73,8 @@ function Home(){
                                     setUserEmail={setUserEmail}
                                     invalidCredentials={invalidCredentials}
                                     setInvalidCredentials={setInvalidCredentials}
+                                    setNotes={setNotes}
+                                    setUserId={setUserId}
                                     /> : null}
             </div>
             </div>
@@ -78,6 +82,8 @@ function Home(){
         <Page 
             notes={notes}
             setNotes={setNotes}
+            userId={userId}
+            userlogged={userlogged}
         />
         <Footer />
         </div>

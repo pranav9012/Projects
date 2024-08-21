@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import fetchNotes from '../APIs/notesAPI';
 import onRegisterSubmit from '../APIs/registerAPI';
 
 function RegisterForm({setIsLoginOpen, setIsRegisterOpen, setUserlogged,
-                        setUserEmail, invalidCredentials, setInvalidCredentials}){
+                        setUserEmail, invalidCredentials, setInvalidCredentials,
+                        setNotes, setUserId}){
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -45,7 +47,7 @@ function RegisterForm({setIsLoginOpen, setIsRegisterOpen, setUserlogged,
         const formData = new FormData();
         formData.append('email', email);
         formData.append('password', password);
-        const status = await onRegisterSubmit(formData);
+        const [status, userId] = await onRegisterSubmit(formData);
         console.log(status);
         console.log(typeof(status));
         if(status === 201){
@@ -54,6 +56,8 @@ function RegisterForm({setIsLoginOpen, setIsRegisterOpen, setUserlogged,
             setUserlogged(true);
             setUserEmail(email.split('@')[0]);
             console.log(email);
+            setUserId(userId);
+            fetchNotes(setNotes, userId);
         }
         else if(status === 400){
             setInvalidCredentials(true);
@@ -64,7 +68,11 @@ function RegisterForm({setIsLoginOpen, setIsRegisterOpen, setUserlogged,
         }
         else if(status === 500){
             console.error('Internal Server Error or Bad Gateway');
-            navigate('/servererror');
+            navigate('/Server-error');
+        }
+        else if(status == 404){
+            console.log('Not Found!')
+            navigate('/404');
         }
 
     }
