@@ -67,35 +67,35 @@ To set up the project locally, follow these steps:
 
 2. **Navigate to the Pages directory under your preferred language stack**:
    
-   ### NodeJS
-    1. `cd NodeJS/Pages`
-    
-    2.**Install dependencies**:
-        ```bash
-        npm install
+### NodeJS
+1. `cd NodeJS/Pages`
 
-    3. **Run Node**
-        ```bash
-        node index.js
+2. **Install dependencies**:
+    ```bash
+    npm install
 
-    ### Django
-    1. `cd Python/Pages`
-    
-    2.**Install dependencies**:
-        ```bash
-        pip install -r requirements.txt
+3. **Run Node**
+    ```bash
+    node index.js
 
-    3. **Run Django**
-        ```bash
-        python manage.py runserver
-    
-    ### Spring-boot
-    1. `cd Spring/Pages`
-    
-    2.**Install dependencies**:
-        ```bash
-        ./mvnw install
+### Django
+1. `cd Python/Pages`
 
-    3. **Run Django**
-        ```bash
-        ./mvnw spring-boot:run
+2. **Install dependencies**:
+    ```bash
+    pip install -r requirements.txt
+
+3. **Run Django**
+    ```bash
+    python manage.py runserver
+
+### Spring-boot
+1. `cd Spring/Pages`
+
+2. **Install dependencies**:
+    ```bash
+    ./mvnw install
+
+3. **Run Django**
+    ```bash
+    ./mvnw spring-boot:run
