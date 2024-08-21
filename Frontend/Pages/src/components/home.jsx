@@ -48,6 +48,8 @@ function Home(){
             setUserlogged={setUserlogged}
             setNotes={setNotes}
             userEmail={userEmail}
+            setUserEmail={setUserEmail}
+            setUserId={setUserlogged}
             />
         </div>
         {isLoginOpen || isRegisterOpen ?
