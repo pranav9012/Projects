@@ -9,9 +9,9 @@ const app = express();
 const port = 3000
 const upload = multer();
 
-app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({credentials: true, origin: 'http://localhost:5173'}));
 
 app.post('/login', upload.none(), async (req, res) => {
     const {email, password} = req.body;

@@ -5,4 +5,9 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react()],
   // base: "/Projects/Frontend/Pages/"
+  server:{
+    proxy:{
+       '/csrf-token': 'http://localhost:3000',
+    }
+  }
 })

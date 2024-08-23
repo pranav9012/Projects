@@ -1,9 +1,10 @@
 import axios from "axios";
+axios.defaults.withCredentials = true;
 
 const fetchNotes = async(setNotes, user_id) => {
     try{
         console.log(user_id + "first time");
-        const res = await axios.get(`http://localhost:3000/notes/${user_id}`, {timeout: 3000});
+        const res = await axios.get(`http://localhost:3000/notes/${user_id}`, {timeout: 3000,  withCredentials: true});
         console.log(user_id);
         console.log(res.data.pages);
         setNotes(res.data.pages);
@@ -14,7 +15,7 @@ const fetchNotes = async(setNotes, user_id) => {
 
 const addNote = async(newNote, user_id) =>{
     try{
-        const res = await axios.post(`http://localhost:3000/addnote/${user_id}`, newNote, {timeout: 3000});
+        const res = await axios.post(`http://localhost:3000/addnote/${user_id}`, newNote, {timeout: 3000,  withCredentials: true});
         console.log(res.status + " : " + res.data.message);
         return res.status;
     } catch (error) {
@@ -34,7 +35,7 @@ const addNote = async(newNote, user_id) =>{
 const deleteNote = async(note_id, user_id) => {
     try{
         console.log(note_id, user_id);
-        const res = await axios.delete(`http://localhost:3000/deletenote/${user_id}/${note_id}`, {timeout: 3000});
+        const res = await axios.delete(`http://localhost:3000/deletenote/${user_id}/${note_id}`, {timeout: 3000,  withCredentials: true});
         console.log(res.status + " : " + res.data.message);
         return res.status;
     } catch (error) {

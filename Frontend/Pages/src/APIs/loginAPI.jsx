@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const onLoginSubmit = async (formData) => {
   try {
-      const res = await axios.postForm('http://localhost:3000/login', formData, {timeout: 5000});
+      const res = await axios.postForm('http://localhost:3000/login', formData, {timeout: 5000,  withCredentials: true});
       console.log(res.status + " : " + res.data.message + " : " + res.data.user_id);
       return [res.status, res.data.user_id];
   } catch (error) {
