@@ -44,6 +44,7 @@ Welcome to Pages! This is a web application designed to help you keep track of y
 ## Getting Started
 
 To set up the project locally, follow these steps:
+**PostgreSQL is needed for backend**
  
 ## Frontend
 1. **Clone the repository**:  
@@ -87,7 +88,9 @@ To set up the project locally, follow these steps:
 
 3. **Run Django**
     ```bash
-    python manage.py runserver
+    python manage.py makemigrations
+    python manage.py migrate
+    python manage.py runserver 3000
 
 ### Spring-boot
 1. `cd Spring/Pages`
