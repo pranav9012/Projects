@@ -41,9 +41,9 @@ html {
 
 .text-box-2 {
   width: 40rem;
-  height: 30rem;
+  height: auto;
   right: 10rem;
-  top: 5rem;
+  top: 0rem;
   line-height: 1.2;
   word-spacing: 2px;
 }
