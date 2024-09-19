@@ -20,8 +20,12 @@ html {
   font-style: normal;
     }
 
-::-webkit-scrollbar {
+.no-scrollbar::-webkit-scrollbar {
   opacity: 0;
+}
+
+.scrollbar ::-webkit-scrollbar {
+  opacity: 1;
 }
 
 .text-box {

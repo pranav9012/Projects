@@ -68,7 +68,7 @@ function Modal({ modalState, setModalState, show }) {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                onClick={() => setModalState(false)} // Close modal on backdrop click
+                // onClick={() => setModalState(false)} // Close modal on backdrop click
             >
                 <motion.div
                     key="modalContent"

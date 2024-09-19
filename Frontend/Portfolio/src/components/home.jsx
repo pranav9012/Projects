@@ -23,7 +23,7 @@ function Home({isRotating, currentStage, setIsRotating, transitioning,
 
 
     return(
-            <section className="w-full h-screen relative overflow-auto">
+            <section className={`w-full h-screen relative overflow-auto ${currentStage == 1 ? "no-scrollbar" : "scrollbar"}`}>
                 { show ? <CustomLoader /> : null}
                 <Canvas
                     gl={{preserveDrawingBuffer: true}}

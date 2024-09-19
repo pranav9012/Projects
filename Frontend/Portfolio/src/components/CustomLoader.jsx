@@ -39,7 +39,7 @@ function CustomLoader() {
 
     return (
         <motion.div
-            className="flex flex-col items-center justify-center h-screen w-full z-50"
+            className="flex flex-col items-center justify-center h-screen w-full z-50 no-scrollbar"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
