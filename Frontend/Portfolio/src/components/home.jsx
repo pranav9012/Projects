@@ -23,11 +23,11 @@ function Home({isRotating, currentStage, setIsRotating, transitioning,
 
 
     return(
-            <section className={`w-full h-screen relative overflow-auto ${currentStage == 1 ? "no-scrollbar" : "scrollbar"}`}>
+            <section className={`w-full h-screen relative overflow-auto no-scrollbar`}>
                 { show ? <CustomLoader /> : null}
                 <Canvas
                     gl={{preserveDrawingBuffer: true}}
-                    className={`w-full h-screen bg-transparent`}
+                    className={`w-full h-screen bg-transparent ${currentStage == 1 ? "no-scrollbar" : "scrollbar"}`}
                 camera={{
                     type: 'perspective',
                     fov: 75,

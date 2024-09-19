@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
-import Viking from '../assets/Viking-Walk-Cycle.gif';
+// import Viking from '../assets/Viking-Walk-Cycle.gif';
+import Viking from '../assets/ezgif.com-cut.gif';
 
 function CustomLoader() {
     // Function to create the typewriter effect
@@ -39,7 +40,7 @@ function CustomLoader() {
 
     return (
         <motion.div
-            className="flex flex-col items-center justify-center h-screen w-full z-50 no-scrollbar"
+            className="flex flex-col items-center justify-center h-full w-full z-50 no-scrollbar"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
